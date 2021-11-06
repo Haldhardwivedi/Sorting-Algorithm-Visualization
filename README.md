@@ -1,5 +1,5 @@
 # Sorting-Algorithm-Visualization
-Done as a part of Course Project For Interactive Computer Graphics 
+Done as  part of Course Project For Interactive Computer Graphics 
 
 ## Bubble Sort 
 
