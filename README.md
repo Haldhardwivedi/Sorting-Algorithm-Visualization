@@ -8,4 +8,4 @@ Done as  part of Course Project For Interactive Computer Graphics
 
 ## Insertion Sort 
 
-![Alt Text](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/out.gif)
+![Alt Text](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/insertion_sort.gif)
