@@ -3,13 +3,15 @@
 #include <math.h>
 #include<bits/stdc++.h>
 #include <unistd.h>
+#include <pthread.h>
 
 
 using namespace std;
 
-int delay=5000;
+int delay=10000;
 vector<int>arr;
 int n;
+bool fullscreen=false;
 
 void renderfunction()
 {
@@ -86,8 +88,12 @@ void selectionsort()
         min_idx = i;
         for (j = i+1; j < n; j++)
         if (arr[j] < arr[min_idx])
+        {
             min_idx = j;
+            usleep(delay);
+        }
         swap(min_idx, i);
+        usleep(delay);
     }
 }
 
@@ -102,20 +108,53 @@ void insertionsort()
         {
             arr[j + 1] = arr[j];
             renderfunction();
+            usleep(delay);
             j = j - 1;
         }
         arr[j + 1] = key;
         renderfunction();
+        usleep(delay);
     }
 }
+//quick sort
+int partition (int low, int high) 
+{ 
+    int pivot = arr[high]; // pivot 
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+  
+    for (int j = low; j <= high - 1; j++) 
+    { 
+        if (arr[j] < pivot) 
+        { 
+            i++; 
+            swap(i,j); 
+        } 
+    } 
+    swap(i + 1, high); 
+    return (i + 1); 
+}
 
+void quickSort(int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        int pi = partition(low, high); 
+        quickSort(low, pi - 1); 
+        quickSort(pi + 1, high); 
+    } 
+}
+
+//keyboard event function
 void keyboardEvent(unsigned char c, int x, int y)
 {
 	if(c == 27)
 	{
 		// exit on escape key pressed
-		exit(0);
-        //free(arr);
+		//exit(0);
+        for(int i=0;i<n;i++)
+        cout<<arr[i]<<" ";
+        cout<<endl;
+        glutDestroyWindow(glutGetWindow());
 	}
 	else if(c == 98)
 	{
@@ -132,20 +171,33 @@ void keyboardEvent(unsigned char c, int x, int y)
         //i for insertion
         insertionsort();
     }
+    else if(c=='q')
+    {
+        quickSort(0,n-1);
+    }
     else if(c=='f')
     {
-        glutFullScreen();
+        fullscreen = !fullscreen;
+        if (fullscreen) 
+        {
+            glutFullScreen();
+        } 
+        else 
+        {
+            glutReshapeWindow(1200, 900);
+            glutPositionWindow(0,0);
+        }
     }
 }
 
-
-
 int main(int argc, char** argv)
 {
+    pthread_t thread_id;
     srand(time(0));
-    n=rand()%200;
+    n=rand()%400;
+    //n=300;
     if(n==0)
-            n=10;
+            n=30;
     int i;
     for(i=0;i<n;i++)
     arr.push_back(i);
