@@ -20,9 +20,16 @@ To run
 
 ## Bubble Sort 
 
-![Alt Text](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/out.gif)
+![Bubble Sort gif](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/out.gif)
 
 
 ## Insertion Sort 
 
-![Alt Text](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/insertion_sort.gif)
+![Insertion Sort gif](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/insertion_sort.gif)
+
+## QuickSort
+
+![QuickSort gif](https://github.com/Haldhardwivedi/Sorting-Algorithm-Visualization/blob/main/QuickSort.gif)
+
+
+
