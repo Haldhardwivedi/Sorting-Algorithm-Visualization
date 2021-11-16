@@ -2,7 +2,7 @@
 Done as  part of Course Project For Interactive Computer Graphics 
 
  Keyboard Controls
-* ESC - To exit
+* Esc - To exit
 * b  -Bubble Sort Visualization
 * i  -Insertion Sort Visualization
 * s  -Selection Sort Visualization
